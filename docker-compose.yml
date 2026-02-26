@@ -1,0 +1,23 @@
+version: "3.9"
+
+services:
+  stt-service:
+    build: .
+    container_name: voice-stt
+    ports:
+      - "8000:8000"
+    env_file:
+      - .env
+    volumes:
+      # Persist downloaded model weights across container restarts
+      - whisper_cache:/app/.cache
+    restart: unless-stopped
+    healthcheck:
+      test: [ "CMD", "curl", "-f", "http://localhost:8000/health" ]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 60s # give time for model to load
+
+volumes:
+  whisper_cache:

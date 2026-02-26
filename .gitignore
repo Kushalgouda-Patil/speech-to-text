@@ -1,0 +1,23 @@
+.env
+.env.example
+__pycache__/
+*.py[cod]
+*.pyo
+.Python
+build/
+dist/
+*.egg-info/
+.cache/
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+*.log
+
+# Model weights (large files)
+.cache/huggingface/
+.cache/whisper/
+
+# macOS
+.DS_Store
+
+.venv/
