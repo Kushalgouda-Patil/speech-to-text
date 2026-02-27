@@ -1,0 +1,26 @@
+# Never copy these into the Docker image
+.venv/
+.env
+.env.example
+.git/
+.gitignore
+
+# Python cache
+__pycache__/
+*.py[cod]
+*.pyo
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+
+# Model cache (mounted as a Docker volume instead)
+.cache/
+
+# Tests (not needed at runtime)
+tests/
+
+# macOS
+.DS_Store
+
+# Docs
+README.md
